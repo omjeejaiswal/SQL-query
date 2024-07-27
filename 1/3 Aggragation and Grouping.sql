@@ -89,5 +89,54 @@ WHERE YearsOfExperience < 4 OR SourceofJoining = "Youtube" OR Location = "New De
 DESC employee;
 ALTER TABLE employee ADD column jobPosition VARCHAR(50);
 ALTER TABLE employee MODIFY column FirstName VARCHAR(40);
-ALTER TABLE employee DROP column PRIMARY KEY(EID);
+ALTER TABLE employee DROP column jobPosition;
  
+ 
+-- TRUNCATE in SQL
+-- DELETE vs TRUNCATE command in SQL 
+-- Definition:	The delete statement is used to remove single or multiple records from an existing table depending on the specified condition.
+-- The truncate command removes the complete data from an existing table but not the table itself. It preserves the table structure or schema.
+-- It is a DML (Data Manipulation Language) command & truncate is DDL (Data Definition Language) command.
+-- in DELETE It can use the WHERE clause to filter any specific row or data from the table.	& truncate It does not use the WHERE clause to filter records from the table.
+-- Working	of DELETE This command eliminates records one by one. & TRUNCATE This command deletes the entire data page containing the records.
+-- DELETE It will lock the row before deletion. &  TRUNCATE-> 	It will lock the data page before deletion.
+
+-- DELETE FROM table_name WHERE condition;  
+-- TRUNCATE TABLE table_name;  
+
+
+
+-- DATABASES in SQL -> DECIMAL
+-- IMPLICIT TYPECASTING
+INSERT INTO COURSE (CourseName, CourseDurationMonth, CourseFee) VALUES ("Foundation in ML", 3.5 , 5499);
+SELECT * FROM COURSE;
+
+CREATE TABLE COURSE_Update(
+	CourseID INT AUTO_INCREMENT,
+    CourseName VARCHAR(100) NOT NULL,
+    CourseDurationMonth INT NOT NULL,
+    CourseFee INT NOT NULL,
+    PRIMARY KEY(CourseID)
+);
+
+INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("THE complter Excel Mastery Course", 3 , 1499); 
+INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("DSA for INterview Perpartion", 2 , 2499);
+INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("SQL Bootcamp", 1 , 3499);
+INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("Foundation in ML", 3.5 , 5499);
+INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("DSA", 3.5 , 5499);
+
+SELECT * FROM COURSE_Update;
+SELECT * FROM COURSE;
+
+ALTER TABLE COURSE_Update 
+MODIFY CourseDurationMonth DECIMAL(4,1) NOT NULL;
+
+UPDATE COURSE_Update
+SET CourseDurationMonth = 3.5
+WHERE CourseID = 5;
+
+UPDATE COURSE_Update
+SET CourseDurationMonth = 4.5
+WHERE CourseID = 3;
+
+
