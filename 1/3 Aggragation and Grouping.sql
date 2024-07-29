@@ -116,6 +116,8 @@ CREATE TABLE COURSE_Update(
     CourseName VARCHAR(100) NOT NULL,
     CourseDurationMonth INT NOT NULL,
     CourseFee INT NOT NULL,
+    -- Changed_at TIMESTAMP DEFAULT NOW(),
+	Changed_at TIMESTAMP DEFAULT NOW() ON UPDATE NOW(),
     PRIMARY KEY(CourseID)
 );
 
@@ -124,6 +126,7 @@ INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("
 INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("SQL Bootcamp", 1 , 3499);
 INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("Foundation in ML", 3.5 , 5499);
 INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("DSA", 3.5 , 5499);
+INSERT INTO COURSE_Update (CourseName, CourseDurationMonth, CourseFee) VALUES ("Foundation of data sciecnce", 3.5 , 6499);
 
 SELECT * FROM COURSE_Update;
 SELECT * FROM COURSE;
@@ -137,6 +140,24 @@ WHERE CourseID = 5;
 
 UPDATE COURSE_Update
 SET CourseDurationMonth = 4.5
+WHERE CourseID = 3; 
+
+
+DROP TABLE COURSE_Update;
+
+
+-- update the courseFee of SQL bootcamp to 3999
+UPDATE COURSE_Update
+SET CourseFee = 3999
 WHERE CourseID = 3;
+
+
+
+
+
+
+
+
+
 
 
