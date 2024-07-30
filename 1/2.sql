@@ -1,7 +1,7 @@
-show databases
+show databases;
 
-USE omjeejaiswal
-SHOW TABLES
+USE omjeejaiswal;
+SHOW TABLES;
 
 -- Create a table by name of
 -- course having filed name "CourseID", "CourseName" , "CourseDurationMonth", "COURSEFEE"
