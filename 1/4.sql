@@ -98,6 +98,8 @@ LIMIT 1;
 
 
 
+
+
 -- how many learners are enrolled in each course
 SELECT SelectedCourse, COUNT(*) AS total_learners
 FROM learners
